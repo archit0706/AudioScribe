@@ -11,6 +11,7 @@ const Home = () => {
   const [extractedText, setExtractedText] = useState("");
   const [audioUrl, setAudioUrl] = useState("");
   const [error, setError] = useState("");
+  const [copySuccess, setCopySuccess] = useState(false);
 
   const handleFileSelect = (file) => {
     setSelectedFile(file);
@@ -203,6 +204,47 @@ const Home = () => {
                   outline: "none",
                 }}
               />
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(extractedText);
+                  setCopySuccess(true);
+                  setTimeout(() => {
+                    setCopySuccess(false);
+                  }, 2000);
+                }}
+                style={{
+                  padding: "10px 18px",
+                  backgroundColor: "#2196F3",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  marginTop: "10px",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  transition: "background-color 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#0b7dda";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#2196F3";
+                }}
+              >
+                📋 Copy Text
+              </button>
+              {copySuccess && (
+                <div
+                  style={{
+                    marginTop: "10px",
+                    color: "#4CAF50",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                  }}
+                >
+                  ✓ Text copied successfully
+                </div>
+              )}
             </div>
           )}
 

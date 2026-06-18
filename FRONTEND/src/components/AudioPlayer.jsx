@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import VoiceControl from "./VoiceControl";
 
 const AudioPlayer = ({ audioUrl }) => {
   const audioRef = useRef(null);
@@ -123,6 +124,34 @@ const AudioPlayer = ({ audioUrl }) => {
           Restart
         </button>
       </div>
+
+      <VoiceControl audioRef={audioRef} />
+
+      <a
+        href={audioUrl}
+        download
+        style={{
+          display: "inline-block",
+          padding: "12px 20px",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          textDecoration: "none",
+          borderRadius: "6px",
+          marginTop: "20px",
+          fontWeight: "500",
+          fontSize: "14px",
+          cursor: "pointer",
+          transition: "background-color 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "#45a049";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "#4CAF50";
+        }}
+      >
+        ⬇ Download Audio
+      </a>
     </div>
   );
 };
