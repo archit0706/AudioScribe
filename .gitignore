@@ -1,0 +1,10 @@
+BACKEND/node_modules/
+FRONTEND/node_modules/
+
+BACKEND/.env
+BACKEND/service-account.json
+
+BACKEND/uploads/
+BACKEND/audio/
+
+*.log
