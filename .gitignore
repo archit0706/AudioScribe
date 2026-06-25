@@ -1,10 +1,22 @@
+# Dependencies
 BACKEND/node_modules/
 FRONTEND/node_modules/
 
+# Environment Variables
 BACKEND/.env
+
+# Google Cloud Credentials
 BACKEND/service-account.json
 
+# Temporary Uploads
 BACKEND/uploads/
+
+# Generated Audio
 BACKEND/audio/
 
+# Logs
 *.log
+
+# OS Files
+.DS_Store
+Thumbs.db

@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import uploadRoutes from './routes/uploadRoutes.js';
@@ -14,6 +15,16 @@ const __dirname = path.dirname(__filename);
 
 // Create Express app
 const app = express();
+
+// Connect to MongoDB
+mongoose
+  .connect('mongodb://127.0.0.1:27017/audioscribe')
+  .then(() => {
+    console.log('✅ MongoDB Connected');
+  })
+  .catch((err) => {
+    console.error('MongoDB Connection Failed:', err.message);
+  });
 
 // Middleware
 app.use(cors());
